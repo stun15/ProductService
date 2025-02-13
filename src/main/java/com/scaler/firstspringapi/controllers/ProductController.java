@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //localhost:8080/products
-@RestController //This controller is going to REST HTTP API's
+@RestController
 @RequestMapping("/products")
 public class ProductController {
     private ProductService productService;
@@ -19,15 +19,13 @@ public class ProductController {
 
         this.productService = productService;
     }
-
-    //localhost:8080/products/1
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable("id") Long id) {
 
         return productService.getProductById(id);
     }
 
-    // localhost:8080/products
+    
     @GetMapping()
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
@@ -38,6 +36,10 @@ public class ProductController {
     }
 
     //createProduct
+    @PostMapping()
+    public Product createProduct(@RequestBody Product product){
+        return productService.createProduct(product)
+    }
     //deleteProduct
     //updateProduct -> Partial Update (PATCH)
     //replaceProduct -> Replace (PUT)
