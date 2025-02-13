@@ -30,10 +30,6 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
-    @PutMapping("/{id}")
-    public Product replaceProduct(Long id,@RequestBody Product product) {
-        return productService.replaceProductById(id,product);
-    }
 
     //createProduct
     @PostMapping()
@@ -42,7 +38,7 @@ public class ProductController {
     }
     //deleteProduct
     @DeleteMapping("/{id}")
-    public Product deleteProductById(@PathVariable Long id){
-        return productService.deleteProductById(id)
+    public void deleteProductById(@PathVariable Long id){
+        productService.deleteProductById(id)
     }
 }
