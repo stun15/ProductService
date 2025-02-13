@@ -41,6 +41,8 @@ public class ProductController {
         return productService.createProduct(product)
     }
     //deleteProduct
-    //updateProduct -> Partial Update (PATCH)
-    //replaceProduct -> Replace (PUT)
+    @DeleteMapping("/{id}")
+    public Product deleteProductById(@PathVariable Long id){
+        return productService.deleteProductById(id)
+    }
 }
