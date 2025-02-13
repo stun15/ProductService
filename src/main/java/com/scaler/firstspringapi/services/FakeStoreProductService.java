@@ -64,9 +64,7 @@ public class FakeStoreProductService implements ProductService {
         return products;
     }
 
-    @Override
-    public Product replaceProductById(Long id, Product product) {
-        restTemplate.
-        return null;
+    public void deleteProductById(Long id) {
+        restTemplate.delete("https://fakestoreapi.com/products"+id);
     }
 }
